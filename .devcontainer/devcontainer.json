@@ -1,0 +1,10 @@
+{
+  "name": "Nuxt App",
+  "dockerFile": "Dockerfile",
+  "appPort": 8330,
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "octref.vetur",
+    "dariofuzinato.vue-peek"
+  ]
+}
