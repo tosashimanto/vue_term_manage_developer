@@ -1,6 +1,35 @@
-# drivers_nuxt_app_check_upload_json
+# vue_term_manage_developer
 
-> My impressive Nuxt.js project
+> 端末管理 Nuxt.js project
+
+## 構成イメージ
+
+![image](documents/images/overview_image.png)
+
+## prettierフォーマッター
+
+```
+Shift + Option + F
+```
+
+## Dockerコマンド
+
+```
+Dcoker停止/削除
+
+$ docker ps -a
+$ docker stop <PID>
+$ docker rm <PID>
+```
+
+## 起動プロセスkill
+
+```
+PORTからプロセスを特定
+
+$ lsof -i:8330
+```
+
 
 ## Build Setup
 
@@ -21,7 +50,8 @@ $ yarn run generate
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
+## Nuxtプロジェクト作成
+yarn create nuxt-app .
 
 
-![image](documents/images/overview_image.png)
 
