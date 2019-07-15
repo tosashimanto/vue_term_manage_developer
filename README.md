@@ -6,6 +6,21 @@
 
 ![image](documents/images/overview_image.png)
 
+## VS CodeでDocker環境にRemote接続
+
+![image](documents/images/vs_code_remote.png)
+
+## Nuxtアプリ起動
+
+```
+terminal windowでコマンド実行
+
+$yarn install .... yarn インストール
+$yarn run dev .... アプリ起動
+```
+
+![image](documents/images/yarn_run_dev.png)
+
 ## prettierフォーマッター
 
 ```
@@ -52,6 +67,3 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## Nuxtプロジェクト作成
 yarn create nuxt-app .
-
-
-
