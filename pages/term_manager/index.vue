@@ -19,6 +19,20 @@
               />
             </div>
             <div>
+              <span class="task-input-label">住所</span
+              ><el-input
+                class="task-input"
+                placeholder="住所を入力"
+                v-model="get_model.address"
+              />
+              <span class="task-input-label">電話番号</span
+              ><el-input
+                class="task-input"
+                placeholder="電話番号を入力"
+                v-model="get_model.tel"
+              />
+            </div>
+            <div>
               <span class="task-input-label">車両ID</span
               ><el-input
                 class="task-input"
@@ -72,12 +86,15 @@
           <div class="clearfix">
             <div>
               <div>
-                <span class="task-input-label2">DRIVER'S単体化有効フラグ</span
-                ><el-input
-                  class="task-input"
-                  placeholder="DRIVER'S単体化有効フラグを入力"
-                  v-model="get_model.drivers_singulation_enabled"
-                />
+                <span class="demonstration task-input-label2"
+                  >DRIVER'S単体化利用開始日</span
+                >
+                <el-date-picker
+                  v-model="get_model.drivers_singulation_available_on"
+                  type="datetime"
+                  placeholder="利用開始日時を入力"
+                >
+                </el-date-picker>
               </div>
               <div>
                 <span class="task-input-label2">ネット決済加盟店ID</span
@@ -105,7 +122,7 @@
                 <span class="task-input-label2">メーター種別</span>
                 <el-select
                   class="task-input"
-                  v-model="get_model.meter_type"
+                  v-model="get_model.drivers_meter_type"
                   placeholder="メーター種別"
                 >
                   <el-option
@@ -193,11 +210,6 @@ export default {
      * 端末管理情報更新
      */
     async publish() {
-      this.socket.emit("term_manage_page_POST_MESSAGE", {
-        name: "test_name",
-        message: "test_message"
-      });
-      console.log("PAGE emit");
       var updateUrl =
         "http://localhost:8330/termmng/v1/driver_term/settings/123456789";
 

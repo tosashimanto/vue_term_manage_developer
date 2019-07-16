@@ -3,27 +3,21 @@
  */
 const app = require("express")();
 const bodyParser = require("body-parser");
-// Client API を読み込む
 const io = require("socket.io-client");
-// 通信先のサーバを指定する
 const socket = io("http://localhost:8331");
+const moment = require("moment-timezone");
 
 module.exports = { path: "/termmng", handler: app };
 
-// urlencodedとjsonは別々に初期化する
 app.use(
   bodyParser.urlencoded({
     extended: true
   })
 );
-
-// JSON形式で設定
 app.use(bodyParser.json());
-// バイナリ形式で設定
 app.use(
   bodyParser.raw({
     type: "*/*",
-    // type: 'image/png', この記述はダメっぽい
     imit: "10mb" // default limit: '100kb
   })
 );
@@ -85,10 +79,16 @@ app.put("/v1/driver_term/settings/:deviceId", (req, res) => {
   console.log("乗務員端末設定情報更新");
   const deviceId = req.params.deviceId;
   console.log("DeviceID=" + deviceId);
+
   const jsonString = JSON.stringify(req.body);
   console.log(JSON.stringify(req.body, undefined, 4));
   const receive_data = JSON.parse(jsonString);
   model = receive_data.model;
+
+  console.log("drivers_singulation_available_on=" + JSON.stringify(model.drivers_singulation_available_on, undefined, 4));
+  moment.tz.setDefault("Asia/Tokyo");
+  model.drivers_singulation_available_on = moment(model.drivers_singulation_available_on).format("YYYY-MM-DD HH:mm:ss");
+
   console.log(JSON.stringify(model, undefined, 4));
 
   socket.emit("term_mng_event", { my: receive_data.model });
@@ -102,23 +102,3 @@ app.put("/v1/driver_term/settings/:deviceId", (req, res) => {
   res.json(result);
 });
 
-/**
- * 乗務員端末設定情報更新
- */
-app.put("/meterdata/tablet/payment", (req, res) => {
-  console.log("乗務員端末設定情報更新");
-  const deviceId = req.params.deviceId;
-  console.log("DeviceID=" + deviceId);
-  // リクエストボディを出力
-  console.log(req.body);
-  const jsonString = JSON.stringify(req.body);
-  console.log("req.body=" + jsonString);
-  top = JSON.parse(jsonString);
-  response.model = top.model;
-  response2 = top.singulation;
-  var result = {
-    result_code: 0,
-    result_message: "OK"
-  };
-  res.json(result);
-});
