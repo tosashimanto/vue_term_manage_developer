@@ -56,7 +56,8 @@ module.exports = {
     "~/api/upload_image.js",
     "~/api/term_mng.js",
     "~/api/meter_cloud.js",
-    "~/api/vehicle-log.js"
+    "~/api/vehicle-log.js",
+    "~/api/net_pay.js"
   ],
 
   /*
