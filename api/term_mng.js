@@ -36,17 +36,30 @@ var response = {
 var model = {
   company_id: "99003",
   company_name: "Japan株式会社",
+  address: "東京都千代田区1-2-3",
+  tel: "03-1111-2222",
   car_id: "8140",
   setting_password: "2151",
   interval_distance: 60,
   interval_time: 10,
   jtx_link_enabled: 1,
+  log_output_type: 0,
+  sim_phone_number: null,
+  settle_amount_output_type: 0,
+  ip_company_id: "00002",
+  group_name: "日本",
+  running_start: "1000-01-01 00:00:00",
+  prefecture_code: 123,
+  radio_available_on: null,
+  translation_available_on: null,
   ipdispatch_mode: 0,
-  drivers_singulation_enabled: 1, // DRIVER'S単体化有効フラグ
+
+  //-------------------------------
+  drivers_singulation_available_on: "2019-03-25 13:52:01", // DRIVER'S単体化利用開始日
+  netpay_api_store_id: "1234567890", // ネット決済加盟店ID
   netpay_api_account: "Japan Taro", // ネット決済アカウント
   netpay_api_password: "password", // ネット決済パスワード
-  netpay_api_store_id: "1234567890", // ネット決済加盟店ID
-  meter_type: "yazaki24", // 単体化 メーター種別
+  drivers_meter_type: "yazaki24", // 単体化 メーター種別
   loading_card_type: 1, // ローディングカード種別
   version_btif_ble: "999.999.999 999.999.999 999.999.999", // BTIF(Bluetooth) ファームバージョン
   correct_fare_available: 0 // 金額置換利用フラグ
