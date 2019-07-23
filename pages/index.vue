@@ -1,6 +1,9 @@
 <template>
   <section class="container posts-page">
     <el-container>
+      <div slot="header" class="clearfix">
+        <span>新着投稿</span>
+      </div>
       <div>
         <ul>
           <li>

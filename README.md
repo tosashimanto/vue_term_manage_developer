@@ -6,6 +6,10 @@
 
 ![image](documents/images/overview_image.png)
 
+## UI sample
+
+![image](documents/images/term_manage_screen_sample.png)
+
 ## VS CodeでDocker環境にRemote接続
 
 ![image](documents/images/vs_code_remote.png)
