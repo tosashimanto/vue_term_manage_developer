@@ -4,6 +4,10 @@
 
 ## 構成イメージ
 
+```
+DockerでVue.js + Nuxt.js環境を構築する
+```
+
 ![image](documents/images/overview_image.png)
 
 ## UI sample

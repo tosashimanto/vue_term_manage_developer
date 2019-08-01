@@ -134,6 +134,38 @@
                   </el-option>
                 </el-select>
               </div>
+              <div>
+                <span class="task-input-label2">ローディングカード種別</span
+                ><el-input
+                  class="task-input"
+                  placeholder="ローディングカード種別を入力"
+                  v-model="get_model.loading_card_type"
+                />
+                </div>
+              <div>
+                <span class="task-input-label3">BTIF(Bluetooth)ファームバージョン(35桁)</span
+                ><el-input
+                  class="task-input2"
+                  placeholder="ファームバージョンを入力"
+                  v-model="get_model.version_btif_ble"
+                />
+              </div>
+              <div>
+                <span class="task-input-label2">金額置換利用フラグ</span
+                ><el-input
+                  class="task-input"
+                  placeholder="ネット決済アカウントを入力"
+                  v-model="get_model.correct_fare_available"
+                />
+                </div>
+              <div>
+                <span class="task-input-label2">BTIF接続対象</span
+                ><el-input
+                  class="task-input"
+                  placeholder="BTIF接続対象を入力"
+                  v-model="get_model.btif_target"
+                />
+              </div>
             </div>
           </div>
         </el-card>
@@ -255,7 +287,10 @@ export default {
   margin: 8px 16px 8px 8px;
   width: 200px;
 }
-
+.task-input2 {
+  margin: 8px 16px 8px 8px;
+  width: 300px;
+}
 .task-input-label {
   display: inline-block;
   width: 160px;
@@ -263,6 +298,10 @@ export default {
 .task-input-label2 {
   display: inline-block;
   width: 200px;
+}
+.task-input-label3 {
+  display: inline-block;
+  width: 320px;
 }
 .posts-page .el-table__row {
   cursor: pointer;

@@ -56,7 +56,8 @@ var model = {
   drivers_meter_type: "yazaki24", // 単体化 メーター種別
   loading_card_type: 1, // ローディングカード種別
   version_btif_ble: "999.999.999 999.999.999 999.999.999", // BTIF(Bluetooth) ファームバージョン
-  correct_fare_available: 0 // 金額置換利用フラグ
+  correct_fare_available: 0, // 金額置換利用フラグ
+  btif_target: 0 // BTIF接続対象
 };
 
 /**
