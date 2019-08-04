@@ -7,6 +7,9 @@
       <div>
         <ul>
           <li>
+            <nuxt-link to="/logwatch">Kibanaログ整形</nuxt-link>
+          </li>
+          <li>
             <nuxt-link to="/term_manager">端末管理</nuxt-link>
           </li>
           <li>

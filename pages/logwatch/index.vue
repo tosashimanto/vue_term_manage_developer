@@ -14,6 +14,8 @@
           <el-button type="primary" @click="onSubmit"
             >ペーストデータ解析</el-button
           >
+          <el-button @click="outputFile()">ファイル出力</el-button>
+          <el-button @click="clear()">Clear</el-button>
         </el-form-item>
       </el-form>
       <el-table
@@ -30,7 +32,6 @@
           width="200"
         >
         </el-table-column>
-
         <el-table-column prop="message" label="メッセージ" sortable>
         </el-table-column>
       </el-table>
@@ -39,6 +40,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 const moment = require("moment-timezone");
 
 export default {
@@ -102,7 +104,37 @@ export default {
           });
         }
       }
-    }
+    },
+    async outputFile() {
+      console.log("ファイル出力");
+      var updateUrl = "http://localhost:8330/logwatch/upload/log";
+
+      this.messages.push({ timestamp: "1", message: "test1" });
+      this.messages.push({ timestamp: "2", message: "test2" });
+      this.messages.push({ timestamp: "7", message: "test7" });
+      this.messages.push({ timestamp: "6", message: "test6" });
+      this.messages.push({ timestamp: "3", message: "test3" });
+
+      const logData = {
+        messages: this.messages
+      };
+      await this.updateLogInfo({
+        updateUrl: updateUrl,
+        logData: logData
+      });
+      this.$notify({
+        type: "success",
+        title: "log保存完了",
+        message: `log保存が完了しました`,
+        // position: "top-right",
+        position: `top-center`,
+        duration: 3000
+      });
+    },
+    clear() {
+      this.messages = [];
+    },
+    ...mapActions("logwatch", ["updateLogInfo"])
   }
 };
 </script>
