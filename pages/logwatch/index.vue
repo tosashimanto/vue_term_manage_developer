@@ -11,11 +11,11 @@
         </el-form-item>
 
         <el-form-item>
+          <el-button @click="clear()">Clear</el-button>
+          <el-button @click="outputFile()">ファイル出力</el-button>
           <el-button type="primary" @click="onSubmit"
             >ペーストデータ解析</el-button
           >
-          <el-button @click="outputFile()">ファイル出力</el-button>
-          <el-button @click="clear()">Clear</el-button>
         </el-form-item>
       </el-form>
       <el-table
@@ -91,7 +91,9 @@ export default {
 
           // JST変換
           moment.tz.setDefault("Asia/Tokyo");
-          const t = moment(new Date(timestamp)).format("YYYY-MM-DD HH:mm:ss");
+          const t = moment(new Date(timestamp)).format(
+            "YYYY-MM-DD HH:mm:ss.SSS"
+          );
           // messages配列に追加
           this.messages.push({ timestamp: t, message: detail_message });
           this.form.log = "";
@@ -108,13 +110,6 @@ export default {
     async outputFile() {
       console.log("ファイル出力");
       var updateUrl = "http://localhost:8330/logwatch/upload/log";
-
-      this.messages.push({ timestamp: "1", message: "test1" });
-      this.messages.push({ timestamp: "2", message: "test2" });
-      this.messages.push({ timestamp: "7", message: "test7" });
-      this.messages.push({ timestamp: "6", message: "test6" });
-      this.messages.push({ timestamp: "3", message: "test3" });
-
       const logData = {
         messages: this.messages
       };
